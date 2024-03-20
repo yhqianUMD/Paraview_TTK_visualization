@@ -14,3 +14,7 @@ Note: when displaying a VTK file, we can also show a VTK file as 'surface with e
 
 # Changing the background color
 Remember to change the background color to white (in the 'Properties' panel) when displaying a VTK file.
+
+# Changing the order in which one is rendered on top
+This goal can be achieved by translating one of the planes a bit (probably in the z direction of the "Transforming -> Translation" attribute) so they are not rendered directly on top of each other.
+Please refer to this link for more details: https://discourse.paraview.org/t/render-z-order-for-image-data/10432
