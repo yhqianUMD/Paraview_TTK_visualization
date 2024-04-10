@@ -11,6 +11,7 @@ Here are the steps to display the Forman gradient in Paraview:
 2. click 'Filters->Alphabetical->Glyph'
 3. in the 'Properties', go to 'Masking' and then 'Glyph Mode', select the Glyph Mode as 'All Points'
 Note: when displaying a VTK file, we can also show a VTK file as 'surface with edge' by changing the 'Representation' attribute in the 'Properties' panel.
+4. in the 'Glyph1' layer, click the 'Representation' and set it as 'Feature Edges'.
 
 # Display the critical points in Paraview
 Here are the steps to display the critical points in Paraview:
@@ -18,6 +19,7 @@ Here are the steps to display the critical points in Paraview:
 2. click 'Representation->Point Gaussian'
 3. click 'Coloring -> critical'
 4. in 'Point Gaussian', set the 'Gaussian Radius'
+5. in the 'Coloring' panel, click 'Edit', then go to the right side, check in the 'Interpret Values As Categories'
    
 # Changing the background color
 Remember to change the background color to white (in the 'Properties' panel) when displaying a VTK file.
