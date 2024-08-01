@@ -1,3 +1,6 @@
+# Compute Forman gradient
+Using the codes in https://github.com/UMDGeoVis/FormanGradient2D/blob/master/source/main.cpp, commenting lines 158-162 of the main.cpp file. We can get the expected Forman gradient and critical points for visualization.
+
 # Display a TIN in Paraview
 Here are the steps to display a TIN in Paraview:
 1. convert the TIN file (.tri or .off) to the format file; the triangle is in type "7".
