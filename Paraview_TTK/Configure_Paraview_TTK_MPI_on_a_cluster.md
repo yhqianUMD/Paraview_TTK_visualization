@@ -50,13 +50,23 @@ Notes:
 * Change the directory of VTK_DIR from the environment in conda (which I installed previously) to the one in current paraview, like "/local/data/yuehui/local_yh/ttk-paraview/install/lib64/cmake/paraview-5.11/vtk".
 * Again, replace the 4 in make -j4 install by the number of cores available.
 
-## Update environment variables
+## Update environment variables temporarily
 ```
 export PATH=$PATH:/local/data/yuehui/local_yh/ttk-paraview/install/bin/
 TTK_PREFIX=/local/data/yuehui/local_yh/ttk/install
 export PV_PLUGIN_PATH=$TTK_PREFIX/bin/plugins/TopologyToolKit
 export LD_LIBRARY_PATH=$TTK_PREFIX/lib64:$LD_LIBRARY_PATH
 export PYTHONPATH=$TTK_PREFIX/lib64/python3.9/site-packages
+```
+
+## Update environment variables permanently
+```
+echo 'export PATH=$PATH:/local/data/yuehui/local_yh/ttk-paraview/install/bin/' >> ~/.bashrc
+echo 'export TTK_PREFIX=/local/data/yuehui/local_yh/ttk/install' >> ~/.bashrc
+echo 'export PV_PLUGIN_PATH=$TTK_PREFIX/bin/plugins/TopologyToolKit' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=$TTK_PREFIX/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
+echo 'export PYTHONPATH=$TTK_PREFIX/lib64/python3.9/site-packages' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 Notes:
