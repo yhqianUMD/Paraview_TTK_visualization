@@ -3,7 +3,7 @@
   ```
   module load openmpi/3.1.0
   module load gcc/12.3.0
-  module load boost/1.84.0
+  module load boost/1.84.0 (may not necessary)
   ```
 * go to the directory where ttk-paraview is installed
   ```
@@ -11,5 +11,5 @@
   ```
 * compute discrete gradient
   ```
-  OMP_NUM_THREADS=2 mpirun -n 4 pvbatch pipeline.py
+  OMP_NUM_THREADS=6 mpirun -n 20 pvbatch pipeline.py
   ```
