@@ -1,4 +1,4 @@
-## 1. Below are the codes for computing discrete gradient on a triangle mesh using the TTKDiscreteGradient operator. The outputs in the console will be saved into a txt file. The input is a TIN file in VTK format.
+## 1. Below are the codes (gradient_general_purpose_separate_timing_triangle_mesh_04162025.py) for computing discrete gradient on a triangle mesh using the TTKDiscreteGradient operator. The outputs in the console will be saved into a txt file. The input is a TIN file in VTK format.
 ```
 import sys
 import time
@@ -69,7 +69,7 @@ with open(log_file, "w") as log_f:
         os.dup2(original_stderr_fd, 2)
 ```
 
-## 2. Below are the codes for computing discrete gradient on a tetrahedral mesh using the TTKDiscreteGradient operator. The outputs in the console will be saved into a txt file. The input is a tetrahedral file in VTU format.
+## 2. Below are the codes (gradient_general_purpose_separate_timing_tetra_mesh_04222025.py) for computing discrete gradient on a tetrahedral mesh using the TTKDiscreteGradient operator. The outputs in the console will be saved into a txt file. The input is a tetrahedral file in VTU format.
 
 ```
 import time
