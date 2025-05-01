@@ -1,4 +1,4 @@
-The following is a tutorial that I used to set up passwordless SSH. On this cluster, gsapp13 is the login node with shared file system. We have also other compute nodes like gsappx1-4.
+The following is a tutorial that I used to set up passwordless SSH. On this cluster, gsapp13 is the login node with a shared file system. We also have other compute nodes like gsappx1-4.
 
 ## connect the login node
 ```
@@ -27,3 +27,6 @@ Once that works, try:
 ```
 mpirun -np 8 --host gsappx1,gsappx2 python hello_mpi.py
 ```
+
+Note:
+Currently, I do not have a home directory "/home/qiany" on gsappx4. I may need to contact the IT to use it gsappx4 on this cluster.
