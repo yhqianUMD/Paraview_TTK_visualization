@@ -1,49 +1,73 @@
-# Paraview and TTK installation on a cluster, with MPI supported
+# Paraview and TTK installation on a cluster, with MPI support
 
 ## Introduction
 This tutorial is an introduction for configuring Paraview and TTK on a cluster without sudo access and GUI. The main steps are referred to https://github.com/eve-le-guillou/TTK-MPI-at-example.
 
+Remember to create and activate a Python virtual environment using conda, as we will use Python to run the MPT-supported TTK after the installation.
+
 ## Install Paraview
-1) git clone using putty
+1) git clone using Putty
    
-   go to the directory where we want to install Paraview, then clone ttk-paraview using putty. Sometimes it showed an error when using VScode terminal for clone.
+   go to the directory where we want to install Paraview, then clone ttk-paraview using Putty. Sometimes it showed an error when using VScode terminal for clone.
+   ```
    git clone https://github.com/topology-tool-kit/ttk-paraview.git
+   ```
    
-2) check out the specific version
+3) check out the specific version
    
+   ```
    cd ttk-paraview
-   git checkout 5.11.0
+   ```
    
-3) build
+4) build
    
-  mkdir build && cd build
+   ```
+   mkdir build && cd build
+   ```
   
 4) cmake or ccmake
 
-   if using cmake:
-    cmake -DCMAKE_BUILD_TYPE=Release -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_USE_MPI=ON -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=ON -DCMAKE_INSTALL_PREFIX=../install ..
-   if using ccmake, we can change the configuration one by one (we use the cmake of version 3.23 as the newest version do not have ccmake):
-   ../../cmake-3.23.0/bin/ccmake ../
+   * if using cmake:
+    ```
+    cmake -DCMAKE_BUILD_TYPE=Release -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_USE_MPI=ON -DPARAVIEW_USE_QT=OFF -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=ON -DCMAKE_INSTALL_PREFIX=../install ..
+    ```
+   * if using ccmake, we can change the configuration one by one (we use the cmake of version 3.23 as the newest version do not have ccmake):
+   ```
+   /gpfs/data1/cgis1gp/yuehui/cmake-3.26.0/bin/ccmake ../
+   ```
 
    Note: remember to disable qt as we do not have GUI on this cluster
    
-5) make install, replace the 4 in make -j4 install by the number of cores available
+5) make install, replace the 4 in make -j4 install with the number of cores available
 
+   ```
    make -j4 install
+   ```
+   or, we can directly use ```make -j install```
 
 ## TTK installation
 
-```
-cd ~
-git clone https://github.com/topology-tool-kit/ttk.git
-cd ttk
-git checkout c701cd60b5432d5efe1e63442c3db2998ff383d8
-mkdir build && cd build
-PARAVIEW_PATH=~/ttk-paraview/install/lib/cmake/paraview-5.11
-cmake -DParaView_DIR=$PARAVIEW_PATH -DTTK_ENABLE_MPI=ON -DTTK_ENABLE_MPI_TIME=ON 
--DTTK_ENABLE_64BITS_IDS=ON -DCMAKE_INSTALL_PREFIX=../install .. 
-make -j4 install
-```
+* git clone ttk
+   ```
+   cd /gpfs/data1/cgis1gp/yuehui/local_yh
+   git clone https://github.com/topology-tool-kit/ttk.git
+   cd ttk
+   mkdir build && cd build
+   ```
+* configure
+   ```
+   PARAVIEW_PATH=~/ttk-paraview/install/lib64/cmake/paraview-5.13
+   cmake -DParaView_DIR=$PARAVIEW_PATH -DTTK_ENABLE_MPI=ON -DTTK_ENABLE_MPI_TIME=ON 
+   -DTTK_ENABLE_64BITS_IDS=ON -DCMAKE_INSTALL_PREFIX=../install -DVTK_DIR=/gpfs/data1/cgis1gp/yuehui/local_yh/ttk-paraview/install/lib64/cmake/paraview-5.13/vtk -DBoost_INCLUDE_DIR=/apps/boost/1.84.0/include ..
+   ```
+* install
+  ```
+  make -j install
+  ```
+  or
+  ```
+   make -j4 install
+   ```
 
 Notes:
 * Similarly to the installation of Paraview, we will use ccmake instead of cmake. In addition, we need to remove the "master" before "num_threads" when encountering this kind of error.
