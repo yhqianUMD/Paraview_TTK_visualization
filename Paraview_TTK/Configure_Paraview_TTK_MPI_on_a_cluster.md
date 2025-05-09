@@ -3,11 +3,18 @@
 ## Introduction
 This tutorial is an introduction for configuring Paraview and TTK on a cluster without sudo access and GUI. The main steps are referred to https://github.com/eve-le-guillou/TTK-MPI-at-example.
 
-Remember to create and activate a Python virtual environment using conda, as we will use Python to run the MPT-supported TTK after the installation.
+* Remember to create and activate a Python virtual environment using conda, as we will use Python to run the MPT-supported TTK after the installation.
 
-```
-conda activate py39
-```
+   ```
+   conda activate py39
+   ```
+* Load necessary modules
+  ```
+  module load rh9/mpich/4.3.0
+  module load boost/1.84.0
+  module load git/2.29.3
+  module load python/3.8/anaconda
+  ```
 
 ## Install Paraview
 1) git clone using Putty
