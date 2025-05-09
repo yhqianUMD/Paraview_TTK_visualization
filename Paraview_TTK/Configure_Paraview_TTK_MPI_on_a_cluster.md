@@ -114,7 +114,10 @@ Notes:
    https://github.com/eve-le-guillou/TTK-MPI-at-example.git
 2) By default, the example is resampled to 256^3. To execute it using 2 threads and 4 processes, use the following command:
    
+   ```
+   module load rh9/mpich/4.3.0
    OMP_NUM_THREADS=2 mpirun -n 4 pvbatch pipeline.py
+   ```
 
 ### test with TTK discrete gradient examples
 1) create a gsappx.machinefile file with the following contents in this file:
@@ -136,7 +139,12 @@ Notes:
    cd /gpfs/data1/cgis1gp/yuehui/codes/MPI_Python
    ```
 
-4) run the MPI programs
+4) load MPICH
+   ```
+   module load rh9/mpich/4.3.0
+   ```
+   
+5) run the MPI programs
    ```
    mpiexec -machinefile gsappx.machinefile -n 32 pvbatch /gpfs/data1/cgis1gp/yuehui/codes/MPI_Python/gradient_general_purpose_separate_timing_triangle_mesh_noOutputs_04162025.py
    ```
