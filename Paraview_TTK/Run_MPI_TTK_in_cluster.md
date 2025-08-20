@@ -7,9 +7,9 @@
   
 * 2) load necessary modules
   ```
-  module load openmpi/3.1.0
+  module load rh9/mpich/4.3.0
   module load gcc/12.3.0
-  module load boost/1.84.0 (may not necessary)
+  module load boost/1.84.0
   ```
 
 Option 1:
@@ -25,7 +25,7 @@ Option 1:
 
 * 5) run the python script to compute discrete gradient
   ```
-  mpiexec -machinefile gsappx.machinefile -n 4 pvbatch --mpi script.py
+  mpiexec -machinefile gsappx.machinefile -n 4 pvbatch --mpi /gpfs/data1/cgis1gp/yuehui/codes/MPI_Python/gradient_general_purpose_separate_timing_triangle_mesh_log_outputs_08182025.py
   ```
 
 Notes:
