@@ -1,5 +1,9 @@
 # Compute Forman gradient
-Using the codes in https://github.com/UMDGeoVis/FormanGradient2D/blob/master/source/main.cpp, commenting lines 158-162 of the main.cpp file. We can get the expected Forman gradient and critical points for visualization.
+Using the codes in https://github.com/UMDGeoVis/FormanGradient2D/blob/master/source/main.cpp, 
+1. uncomment lines 158-162 of the main.cpp file. We can get the expected Forman gradient and critical points for visualization.
+2. directly run "qmake", we may need to load multiple modules like gsapp13 cluster
+3. run "make"
+4. go to the "dist" folder and run "./FormanGradient2D -i Crater.off exp"
 
 # Display a TIN in Paraview
 Here are the steps to display a TIN in Paraview:
